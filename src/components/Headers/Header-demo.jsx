@@ -1,14 +1,20 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
+import {toggleMobileMenu} from '../../Redux/Mobile/moile.actions'
+import {selectMenuHidden} from '../../Redux/Mobile/mobile.selector'
+
 import { ReactComponent as Logo} from '../../Images/logo1.svg'
 import Product1 from '../../assets/images/products/cart/product-1.jpg'
 import Product2 from '../../assets/images/products/cart/product-2.jpg'
+import MobileMenu from '../MobileMenu/mobileMenu'
 
-function Header() {
+const Header =({hidden,toggleMobileMenu}) => {
+
+
     return (
-        // <div>
-
-        <div className="page-wrapper">
-        <header className="header header-6">
+        <div>
+             <header className="header header-6">
             <div className="header-top">
                 <div className="container">
                     <div className="header-left">
@@ -137,7 +143,7 @@ function Header() {
 
             <div className="header-bottom sticky-header">
                 <div className="container">
-                    <div className="header-left" style={{ }}>
+                    <div className="header-left">
                         <nav className="main-nav">
                             <ul className="menu sf-arrows">
                                 <li className="megamenu-container active">
@@ -159,9 +165,9 @@ function Header() {
                             </ul>
                         </nav>
 
-                        <button className="mobile-menu-toggler">
-                            <span className="sr-only">Toggle mobile menu</span>
-                            <i className="icon-bars"></i>
+                        <button className="mobile-menu-toggler" >
+                            <span className="sr-only" >Toggle mobile menu</span>
+                            <i className="icon-bars" onClick={ toggleMobileMenu}></i>
                         </button>
                     </div>
 
@@ -169,14 +175,20 @@ function Header() {
                         <i className="la la-lightbulb-o"></i><p><span>Clearance Up to 30% Off</span></p>
                     </div>
                 </div>
+               
             </div>
+          {hidden===false ? <MobileMenu/> : '' }
         </header>
-        
-        </div>      
-         
-    
-     
+        </div>
     )
 }
 
-export default Header
+const mapStateToProps =createStructuredSelector({
+hidden: selectMenuHidden
+});
+
+const mapDispatchToProps = (dispatch) =>({
+    toggleMobileMenu : ()=> dispatch(toggleMobileMenu())
+})
+
+export default connect(mapStateToProps,mapDispatchToProps) (Header)
