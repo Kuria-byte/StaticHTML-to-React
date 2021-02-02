@@ -81,9 +81,8 @@ const MobileMenu =({toggleMobileMenu}) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
+
     )
 }
 
