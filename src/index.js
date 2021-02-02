@@ -8,9 +8,9 @@ import store from './Redux/store'
 
 ReactDOM.render(
   <Provider store ={store}>
-  <React.StrictMode>
+  <React>
     <App />
-  </React.StrictMode>
+  </React>
   </Provider>
 ,
   document.getElementById('root')
