@@ -7,12 +7,12 @@ import store from './Redux/store'
 
 
 ReactDOM.render(
-  <Provider store ={store}>
-  <React>
-    <App />
-  </React>
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>
-,
+  ,
   document.getElementById('root')
 );
 
