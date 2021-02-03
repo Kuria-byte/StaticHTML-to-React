@@ -3,17 +3,31 @@ import OwlCarousel from 'react-owl-carousel';
 import Slider1 from '../../assets/images/demos/demo-6/slider/slide-1.jpg'
 import Slider2 from '../../assets/images/demos/demo-6/slider/slide-2.jpg'
 
-// let options = {
-//     items: 2,
-//     nav: true,
-//     navText:["<div className='nav-btn prev-slide'></div>","<div className='nav-btn next-slide'></div>"],
-//     rewind: true,
-//     autoplay: true,
-//     slideBy: 1,
-//     dots: true,
-//     dotsEach: true,
-//     dotData: true
-//   };
+const owl_options = {
+    items: 1,
+    nav: false,
+    // navText:["<div className='nav-btn prev-slide'></div>","<div className='nav-btn next-slide'></div>"],
+    rewind: true,
+    autoplay: true,
+    slideBy: 1,
+    dots: true,
+    dotsEach: true,
+    dotData: true,
+    responsive :{
+        992:{
+            nav: true, 
+        },
+        0: {
+            nav: false
+        },
+        480: {
+            nav: false
+        },
+        768: {
+            nav: true
+        },
+    }
+  };
 
 
 
@@ -22,16 +36,8 @@ function HomeSlider() {
         <div>
         <main className="main">
         <div className="intro-slider-container">
-                <div className="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" data-owl-options='{
-                        "dots": false,
-                        "nav": false, 
-                        "responsive": {
-                            "992": {
-                                "nav": true
-                            }
-                        }
-                    }'>
-                    <OwlCarousel items={1} autoplay={true} nav>
+                <div className="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl">
+                    <OwlCarousel {...owl_options} nav>
                     <div className="intro-slide" style={{ backgroundImage: `url(${Slider1})`,}} >
                         <div className="container intro-content text-center">
                             <h3 className="intro-subtitle text-white">You're Looking Good</h3>
@@ -54,7 +60,6 @@ function HomeSlider() {
                     </OwlCarousel>
                    
 
-                    
                 </div>
 
                 {/* <span className="slider-loader"></span> */}
