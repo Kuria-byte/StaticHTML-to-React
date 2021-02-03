@@ -2,7 +2,7 @@
 import Header from './components/Headers/Header-demo'
 import HomeSlider from './components/HomeSlider/Home-Slider'
 import CollectionPreview from './components/Collections/CollectionPreview'
-import TrendingCarousel from './components/ShopCarousel/Trending-carousel'
+import ShopCarousel from './components/ShopCarousel/ShopCarousel'
 import Promotion from './components/PromotionSlider/Promotion'
 
 // Styling and Plugins
@@ -26,7 +26,7 @@ function App() {
         <Header />
         <HomeSlider />
         <CollectionPreview />
-        <TrendingCarousel />
+        <ShopCarousel />
         <Promotion/>
 
       </div>

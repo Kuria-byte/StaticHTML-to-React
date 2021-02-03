@@ -35,7 +35,7 @@ const owl_options = {
     }
 };
 
-const TrendingCarousel = () => {
+const ShopCarousel = () => {
     return (
         <div>
             <div className="mb-5"></div>
@@ -395,4 +395,4 @@ const TrendingCarousel = () => {
     )
 }
 
-export default TrendingCarousel
+export default ShopCarousel
