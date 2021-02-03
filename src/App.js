@@ -3,6 +3,7 @@ import Header from './components/Headers/Header-demo'
 import HomeSlider from './components/HomeSlider/Home-Slider'
 import CollectionPreview from './components/Collections/CollectionPreview'
 import TrendingCarousel from './components/ShopCarousel/Trending-carousel'
+import Promotion from './components/PromotionSlider/Promotion'
 
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
@@ -26,6 +27,7 @@ function App() {
         <HomeSlider />
         <CollectionPreview />
         <TrendingCarousel />
+        <Promotion/>
 
       </div>
     </div>
