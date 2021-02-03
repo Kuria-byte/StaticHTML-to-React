@@ -14,9 +14,6 @@ const owl_options = {
     dotsEach: true,
     dotData: true,
     responsive :{
-        992:{
-            nav: true, 
-        },
         0: {
             nav: false
         },
@@ -25,6 +22,9 @@ const owl_options = {
         },
         768: {
             nav: true
+        },
+        992:{
+            nav: true, 
         },
     }
   };
