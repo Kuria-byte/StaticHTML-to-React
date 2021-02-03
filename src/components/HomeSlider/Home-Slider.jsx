@@ -1,5 +1,7 @@
 import React from 'react'
-import OwlCarousel from 'react-owl-carousel';
+//Libraray
+import OwlCarousel from 'react-owl-carousel'
+//images
 import Slider1 from '../../assets/images/demos/demo-6/slider/slide-1.jpg'
 import Slider2 from '../../assets/images/demos/demo-6/slider/slide-2.jpg'
 

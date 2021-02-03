@@ -41,7 +41,7 @@ const ShopCarousel = () => {
             <div className="mb-5"></div>
             <div className="container">
                 <div className="heading heading-center mb-3">
-                    <h2 className="title">Trending</h2>
+                    <h2 className="title">Our Shop</h2>
 
                     <ul className="nav nav-pills justify-content-center" role="tablist">
                         <li className="nav-item">

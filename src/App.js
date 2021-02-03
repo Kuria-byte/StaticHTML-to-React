@@ -4,6 +4,8 @@ import HomeSlider from './components/HomeSlider/Home-Slider'
 import CollectionPreview from './components/Collections/CollectionPreview'
 import ShopCarousel from './components/ShopCarousel/ShopCarousel'
 import Promotion from './components/PromotionSlider/Promotion'
+import Newsletter from './components/NewsLetter/Newsletter'
+
 
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
@@ -18,6 +20,7 @@ import './assets/css/skins/skin-demo-6.css'
 import './assets/css/demos/demo-6.css'
 
 
+
 function App() {
   return (
 
@@ -28,6 +31,7 @@ function App() {
         <CollectionPreview />
         <ShopCarousel />
         <Promotion/>
+        <Newsletter/>
 
       </div>
     </div>
