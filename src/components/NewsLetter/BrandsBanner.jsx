@@ -17,7 +17,8 @@ const owl_options = {
     dots: false,
     margin: 30,
     items: 6,
-    loop: false,
+    loop: true,
+    rewind: true,
     responsive: {
         0: {
             items: 2
