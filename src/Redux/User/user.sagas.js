@@ -35,7 +35,13 @@ export function* signInWithGoogle() {
         const { user } = yield auth.signInWithPopup(googleProvider);
         const userRef = yield createUserProfileDocument(user);
         const userSnapShot = yield userRef.get();
-        yield put(googleSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
+        yield put(googleSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
+        yield Swal.fire({
+            icon: 'success',
+            title: 'Sign up successful',
+            text: ("Enjoy your shopping experience!"),
+            footer: '<a href="#" >Start</a>'
+          })    
 
     } catch (error) {
        yield Swal.fire({

@@ -1,7 +1,7 @@
 import banner1 from '../../assets/images/demos/demo-6/banners/banner-1.jpg'
 import banner2 from '../../assets/images/demos/demo-6/banners/banner-2.jpg'
 
-function CollectionPreview() {
+function CollectionOverview() {
     return (
       
         <div className="pt-2 pb-3" style={{display: "block"}}>
@@ -43,4 +43,4 @@ function CollectionPreview() {
     )
 }
 
-export default CollectionPreview
+export default CollectionOverview

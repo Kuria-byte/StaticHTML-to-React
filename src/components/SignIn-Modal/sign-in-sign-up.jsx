@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 // Utils
 import { googleSignInStart, emailSignInStart } from '../../Redux/User/user.actions'
-//components
-import FormInput from '../FormInputs/form-input';
-
-
 
 
 class SignInModal extends Component {
@@ -61,26 +57,17 @@ class SignInModal extends Component {
                                     <div className="tab-content" id="tab-content-5">
                                         <div className="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
                                             <form onSubmit={this.handleSubmit} >
-                                                <FormInput
-                                                    id="singin-email"
-                                                    name='email'
-                                                    type='email'
-                                                    handleChange={this.handleChange}
-                                                    value={this.state.email}
-                                                    label='email'
-                                                    required
-                                                />
-                                                <FormInput
-                                                    id="singin-password"
-                                                    name='password'
-                                                    type='password'
-                                                    value={this.state.password}
-                                                    handleChange={this.handleChange}
-                                                    label='password'
-                                                    required
-                                                />
 
+                                            <div className="form-group">
+                                                    <label htmlFor="register-email">Your email address *</label>
+                                                    <input type="email" className="form-control" id="register-email" handleChange={this.handleChange} value={this.state.email}  name="register-email" required />
+                                                </div>
 
+                                                <div className="form-group">
+                                                    <label htmlFor="register-password">Password *</label>
+                                                    <input type="password" className="form-control" id="register-password" value={this.state.password} handleChange={this.handleChange} name="register-password" required />
+                                                </div>
+                                          
                                                 <div className="form-footer">
                                                     <button type="submit" className="btn btn-outline-primary-2">
                                                         <span>LOG IN</span>
@@ -116,12 +103,12 @@ class SignInModal extends Component {
                                         <div className="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                                             <form action="#">
                                                 <div className="form-group">
-                                                    <label for="register-email">Your email address *</label>
+                                                    <label htmlFor="register-email">Your email address *</label>
                                                     <input type="email" className="form-control" id="register-email" name="register-email" required />
                                                 </div>
 
                                                 <div className="form-group">
-                                                    <label for="register-password">Password *</label>
+                                                    <label htmlFor="register-password">Password *</label>
                                                     <input type="password" className="form-control" id="register-password" name="register-password" required />
                                                 </div>
                                                 <div className="form-footer">
@@ -132,7 +119,7 @@ class SignInModal extends Component {
 
                                                     <div className="custom-control custom-checkbox">
                                                         <input type="checkbox" className="custom-control-input" id="register-policy" required />
-                                                        <label className="custom-control-label" for="register-policy">I agree to the <a href="/">privacy policy</a> *</label>
+                                                        <label className="custom-control-label" htmlFor="register-policy">I agree to the <a href="/">privacy policy</a> *</label>
                                                     </div>
                                                 </div>
                                             </form>

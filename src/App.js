@@ -4,11 +4,7 @@ import { createStructuredSelector } from "reselect";
 
 // Components
 import Header from './components/Headers/Header-demo'
-import HomeSlider from './components/HomeSlider/Home-Slider'
-import CollectionPreview from './components/Collections/CollectionPreview'
-import ShopCarousel from './components/ShopCarousel/ShopCarousel'
-import Promotion from './components/PromotionSlider/Promotion'
-import Newsletter from './components/NewsLetter/Newsletter'
+import HomePage from './components/Pages/homePage';
 import Footer from './components/Footer/Footer'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
@@ -46,11 +42,7 @@ class App extends React.Component {
       <div className='App'>
         <div class='page-wrapper'>
           <Header />
-          <HomeSlider />
-          <CollectionPreview />
-          <ShopCarousel />
-          <Promotion />
-          <Newsletter />
+          <HomePage />
           <Footer />
 
         </div>
