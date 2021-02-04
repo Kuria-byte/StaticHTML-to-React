@@ -6,6 +6,7 @@ import { selectMenuHidden } from '../../Redux/Mobile/mobile.selector'
 // Resources
 import { ReactComponent as Logo } from '../../Images/logo1.svg'
 
+
 //components
 import MobileMenu from '../MobileMenu/mobileMenu'
 import SignInModal from '../SignIn-Modal/sign-in-sign-up'
@@ -59,7 +60,8 @@ const Header = ({ hidden, toggleMobileMenu }) => {
                         </div>
                         <div className="header-center">
                             <a href="index.html" className="logo">
-                                <Logo />
+                                {/* <img src={logo} alt='logos' style={{height: 125 , width: 130}}></img> */}
+                                <Logo/>
                             </a>
                         </div>
 

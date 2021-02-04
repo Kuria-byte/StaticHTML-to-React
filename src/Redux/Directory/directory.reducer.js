@@ -1,15 +1,19 @@
+import banner1 from '../../assets/images/demos/demo-6/banners/women7.jpg'
+import banner2 from '../../assets/images/demos/demo-6/banners/men5.jpg'
+
+
 const INITIAL_STATE ={
     sections: [
         {
           title: 'hats',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-          id: 1,
+          id: 5,
           linkUrl: 'shop/hats'
         },
         {
           title: 'jackets',
           imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-          id: 2,
+          id: 4,
           linkUrl: 'shop/jackets'
         },
         {
@@ -20,16 +24,16 @@ const INITIAL_STATE ={
         },
         {
           title: 'womens',
-          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+          imageUrl: banner1,
           size: 'large',
-          id: 4,
+          id: 2,
           linkUrl: 'shop/womens'
         },
         {
           title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          imageUrl: banner2,
           size: 'large',
-          id: 5,
+          id: 1,
           linkUrl: 'shop/mens'
         }
       ]

@@ -7,6 +7,7 @@ import product3 from '../../assets/images/demos/demo-6/products/product-3-1.jpg'
 import product4 from '../../assets/images/demos/demo-6/products/product-1-2.jpg'
 import product5 from '../../assets/images/demos/demo-6/products/product-4-1.jpg'
 import product6 from '../../assets/images/demos/demo-6/products/product-4-2.jpg'
+import ShopItem from './shop-item';
 
 const owl_options = {
     items: 4,
@@ -53,6 +54,9 @@ const ShopCarousel = () => {
                         <li className="nav-item">
                             <a className="nav-link" id="trending-men-link" data-toggle="tab" href="#trending-men-tab" role="tab" aria-controls="trending-men-tab" aria-selected="false">Men</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" id="trending-shoes-link" data-toggle="tab" href="#trending-shoes-tab" role="tab" aria-controls="trending-shoes-tab" aria-selected="false">Shoes</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -63,44 +67,7 @@ const ShopCarousel = () => {
 
                             <OwlCarousel {...owl_options} >
 
-                                <div className="product product-7 text-center">
-                                    <figure className="product-media">
-
-                                        <img src={product1} alt="Product" className="product-image" />
-                                        <img src={product1} alt="Product" className="product-image-hover" />
-
-
-                                        <div className="product-action-vertical">
-                                            <span className="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></span>
-                                        </div>
-
-                                        <div className="product-action">
-                                            <span className="btn-product btn-cart"><span>add to cart</span></span>
-                                        </div>
-                                    </figure>
-
-                                    <div className="product-body">
-                                        <div className="product-cat">
-                                            <span>Clothing</span>
-                                        </div>
-                                        <h3 className="product-title"><a href="/">Denim jacket</a></h3>
-                                        <div className="product-price">
-                                            $19.99
-                                    </div>
-
-                                        {/* <div className="product-nav product-nav-thumbs">
-                                        <a  href ="/" className="active">
-                                            <img src="assets/images/demos/demo-6/products/product-1-thumb.jpg" alt="product desc"/>
-                                        </a>
-                                        <a  href ="/">
-                                            <img src="assets/images/demos/demo-6/products/product-1-2-thumb.jpg" alt="product desc"/>
-                                        </a>
-                                        <a  href ="/">
-                                            <img src="assets/images/demos/demo-6/products/product-1-3-thumb.jpg" alt="product desc"/>
-                                        </a>
-                                    </div>    */}
-                                    </div>
-                                </div>
+                              <ShopItem/>
 
                                 <div className="product product-7 text-center">
                                     <figure className="product-media">

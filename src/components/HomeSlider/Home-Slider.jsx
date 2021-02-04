@@ -2,7 +2,7 @@ import React from 'react'
 //Libraray
 import OwlCarousel from 'react-owl-carousel'
 //images
-import Slider1 from '../../assets/images/demos/demo-6/slider/slide-1.jpg'
+import Slider1 from '../../assets/images/demos/demo-6/slider/slide5.jpg'
 import Slider2 from '../../assets/images/demos/demo-6/slider/slide-2.jpg'
 
 const owl_options = {
