@@ -4,6 +4,7 @@ import { googleSignInSuccess, googleSignInFailure,emailSignInSuccess,emailSignIn
 import Swal from 'sweetalert2'
 
 
+
 export function* emailSignUpStart (){
     yield takeLatest('EMAIL_SIGNUP_START', emailSignUp )
 }
@@ -32,6 +33,7 @@ catch(error){
 export function* signInWithGoogle() {
 
     try {
+     
         const { user } = yield auth.signInWithPopup(googleProvider);
         const userRef = yield createUserProfileDocument(user);
         const userSnapShot = yield userRef.get();
@@ -40,7 +42,7 @@ export function* signInWithGoogle() {
             icon: 'success',
             title: 'Sign up successful',
             text: ("Enjoy your shopping experience!"),
-            footer: '<a href="#" >Start</a>'
+            footer: '<a href="/" >Start</a>'
           })    
 
     } catch (error) {

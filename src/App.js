@@ -6,7 +6,6 @@ import { createStructuredSelector } from "reselect";
 // Components
 import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
-import Footer from './components/Footer/Footer'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
 // Styling and Plugins
@@ -45,8 +44,9 @@ class App extends React.Component {
           <Header />
           <Switch>
           <Route exact path="/" component={HomePage} />
-            <Footer />
+            
           </Switch>
+         
         </div>
       </div>
 
