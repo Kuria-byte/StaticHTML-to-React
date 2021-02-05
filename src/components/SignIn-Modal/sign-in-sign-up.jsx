@@ -60,12 +60,12 @@ class SignInModal extends Component {
 
                                             <div className="form-group">
                                                     <label htmlFor="register-email">Your email address *</label>
-                                                    <input type="email" className="form-control" id="register-email" handleChange={this.handleChange} value={this.state.email}  name="register-email" required />
+                                                    <input type="email" className="form-control" id="register-email" onChange={this.handleChange} defaultValue={this.state.email}  name="register-email" required />
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="register-password">Password *</label>
-                                                    <input type="password" className="form-control" id="register-password" value={this.state.password} handleChange={this.handleChange} name="register-password" required />
+                                                    <input type="password" className="form-control" id="register-password" defaultValue={this.state.password} onChange={this.handleChange} name="register-password" required />
                                                 </div>
                                           
                                                 <div className="form-footer">
@@ -103,13 +103,13 @@ class SignInModal extends Component {
                                         <div className="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                                             <form action="#">
                                                 <div className="form-group">
-                                                    <label htmlFor="register-email">Your email address *</label>
-                                                    <input type="email" className="form-control" id="register-email" name="register-email" required />
+                                                    <label htmlFor="register-email1">Your email address *</label>
+                                                    <input type="email" className="form-control" id="register-email1" name="register-email" required />
                                                 </div>
 
                                                 <div className="form-group">
-                                                    <label htmlFor="register-password">Password *</label>
-                                                    <input type="password" className="form-control" id="register-password" name="register-password" required />
+                                                    <label htmlFor="register-password1">Password *</label>
+                                                    <input type="password" className="form-control" id="register-password1" name="register-password" required />
                                                 </div>
                                                 <div className="form-footer">
                                                     <button type="submit" className="btn btn-outline-primary-2">

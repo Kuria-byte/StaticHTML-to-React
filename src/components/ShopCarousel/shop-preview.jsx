@@ -1,7 +1,7 @@
 import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 // Product Images
-import product3 from '../../assets/images/demos/demo-6/products/product-3-1.jpg'
+// import product3 from '../../assets/images/demos/demo-6/products/product-3-1.jpg'
 import ShopItem from './shop-item';
 
 const owl_options = {
