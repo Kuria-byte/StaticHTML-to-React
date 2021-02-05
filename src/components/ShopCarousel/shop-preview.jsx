@@ -5,7 +5,7 @@ import OwlCarousel from 'react-owl-carousel';
 import ShopItem from './shop-item';
 
 const owl_options = {
-    items: 4,
+    items: 1,
     dots: true,
     margin: 20,
     nav: true,
@@ -31,20 +31,25 @@ const owl_options = {
     }
 };
 
-const ShopPreview = () => {
+const ShopPreview = ({ id, title, items }) => {
     return (
-       
-        <div className="tab-pane p-0 fade" id="trending-men-tab" role="tabpanel" aria-labelledby="trending-men-link">
-                        <div className="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl">
 
-                            <OwlCarousel {...owl_options}>
-                                <ShopItem/>
-                            </OwlCarousel>
-                        </div>
+        <div className="tab-pane p-0 fade" id={`trending-${title}-tab`}role="tabpanel" aria-labelledby={`trending-${title}-link`}>
+            <div className="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl">
 
-                    </div>
-            
-      
+            <OwlCarousel {...owl_options}>
+
+                    {items.filter((item, index) => index < 4).map((item) => (
+                        
+                        <ShopItem key={item.id} item={item} />
+                       
+                    ))}
+                    </OwlCarousel>
+            </div>
+
+        </div>
+
+
     )
 }
 

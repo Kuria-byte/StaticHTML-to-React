@@ -1,29 +1,35 @@
 import React from 'react'
-//images
-import Product1 from '../../assets/images/products/cart/product-1.jpg'
-// import Product2 from '../../assets/images/products/cart/product-2.jpg'
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+//utils
+import { selectCartItems } from "../../Redux/Cart/cart.selector";
+import { selectCartItemsCount,selectCartTotal } from '../../Redux/Cart/cart.selector'
+//component
 import CartItem from './CartItem'
 
-const CartModal = () => {
+const CartModal = ({ cartItems, itemCount , total}) => {
     return (
         <div>
             <div className="dropdown cart-dropdown">
                 <a href="/" className="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                     <i className="icon-shopping-cart"></i>
-                    <span className="cart-count">2</span>
-                    <span className="cart-txt">$ 164,00</span>
+                    <span className="cart-count">{itemCount}</span>
+                    <span className="cart-txt">$ {total}</span>
                 </a>
 
                 <div className="dropdown-menu dropdown-menu-right">
                     <div className="dropdown-cart-products">
-                        <CartItem Product1={Product1} />
-                        <CartItem Product1={Product1}/>
+
+                        {cartItems.map((cartItem) => (
+                            <CartItem key={cartItem.id} item={cartItem} />
+                        ))}
+
                     </div>
 
                     <div className="dropdown-cart-total">
                         <span>Total</span>
 
-                        <span className="cart-total-price">$160.00</span>
+                        <span className="cart-total-price">${total}</span>
                     </div>
                     <div className="dropdown-cart-action">
                         <a href="cart.html" className="btn btn-primary">View Cart</a>
@@ -36,4 +42,11 @@ const CartModal = () => {
     )
 }
 
-export default CartModal
+const mapStateToProps = createStructuredSelector({
+    cartItems: selectCartItems,
+    itemCount: selectCartItemsCount,
+    total: selectCartTotal
+});
+
+
+export default connect(mapStateToProps)(CartModal);

@@ -8,6 +8,8 @@ import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
+import { fetchCollectionStart } from './Redux/Shop/shop.actions'
+import { selectIsCollectionFetching } from './Redux/Shop/shop.selector'
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
 //  <!-- Plugins CSS File -->
@@ -28,6 +30,8 @@ class App extends React.Component {
 
   unsubscribeFromAuth = null;
   componentDidMount() {
+    const { fetchCollectionStart } = this.props;
+    fetchCollectionStart();
   }
 
   componentWillUnmount() {
@@ -36,6 +40,7 @@ class App extends React.Component {
 
 
   render() {
+    const { isCollectionFetching } = this.props;
 
     return (
 
@@ -44,7 +49,7 @@ class App extends React.Component {
           <Header />
           <Switch>
           <Route exact path="/" component={HomePage} />
-            
+          <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
           </Switch>
          
         </div>
@@ -54,9 +59,15 @@ class App extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionStart: () => dispatch(fetchCollectionStart())
+})
+
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  isCollectionFetching: selectIsCollectionFetching,
+
 });
 
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

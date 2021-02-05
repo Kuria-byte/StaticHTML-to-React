@@ -1,27 +1,33 @@
 import React from 'react'
-import product1 from '../../assets/images/demos/demo-6/products/product-1-1.jpg'
+import {connect} from 'react-redux';
+//utils
+import {addCartItems } from '../../Redux/Cart/cart.actions'
 
-const ShopItem = () => {
+const ShopItem = ({item, addCartItems}) => {
+
+  const{name,price,imageUrl} = item;
+
+
   return (
 
     <div className='product product-7 text-center'>
       <figure className='product-media'>
-        <img src={product1} alt='Product' className='product-image' />
-        <img src={product1} alt='Product' className='product-image-hover' />
+        <img src={imageUrl} alt='Product' className='product-image' />
+        <img src={imageUrl} alt='Product' className='product-image-hover' />
         <div className='product-action-vertical'>
           <span className='btn-product-icon btn-wishlist btn-expandable'><span>add to wishlist</span></span>
         </div>
         <div className='product-action'>
-          <span className='btn-product btn-cart'><span>add to cart</span></span>
+          <span className='btn-product btn-cart' onClick={()=> addCartItems(item)}><span>add to cart</span></span>
         </div>
       </figure>
       <div className='product-body'>
         <div className='product-cat'>
           <span>Clothing</span>
         </div>
-        <h3 className='product-title'><a href='/'>Denim jacket</a></h3>
+        <h3 className='product-title'><a href='/'>{name}</a></h3>
         <div className='product-price'>
-          $19.99
+        ${price}
         </div>
       </div>
     </div>
@@ -30,4 +36,8 @@ const ShopItem = () => {
   )
 }
 
-export default ShopItem
+const mapDispatchToProps = (dispatch)=>({
+  addCartItems : item => dispatch(addCartItems(item))
+ })
+
+export default connect (null,mapDispatchToProps)(ShopItem)

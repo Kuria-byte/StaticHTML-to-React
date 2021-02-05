@@ -5,6 +5,7 @@ import Promotion from '../../components/PromotionSlider/Promotion'
 import Newsletter from '../../components/NewsLetter/Newsletter'
 import Footer from '../../components/Footer/Footer'
 
+
 const HomePage = () => {
     return (
         <div>
