@@ -40,7 +40,7 @@ function HomeSlider() {
         <div className="intro-slider-container">
                 <div className="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl">
                     <OwlCarousel {...owl_options} nav>
-                    <div className="intro-slide" style={{ backgroundImage: `url(${Slider1})`,}} >
+                    <div className="intro-slide" style={{ backgroundImage: `url(${Slider1})`}} >
                         <div className="container intro-content text-center">
                             <h3 className="intro-subtitle text-white">You're Looking Good</h3>
                               <h1 className="intro-title text-white">New Lookbook</h1>

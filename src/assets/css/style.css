@@ -29,6 +29,8 @@ body {
     background-color: #c96
 }
 
+
+
 p {
     margin-bottom: 1.5rem
 }
@@ -18628,5 +18630,22 @@ button:focus {
 .icon-yarn:before {
     content: '\f7e3'
 }
+
+/* customCss */
+.arrow {
+    cursor: pointer;
+ 
+  }
+  .value {
+    margin: 0 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #333;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: center;
+    
+  }
+
 
 /*# sourceMappingURL=style.css.map */

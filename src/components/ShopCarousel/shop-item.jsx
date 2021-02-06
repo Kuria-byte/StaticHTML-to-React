@@ -14,7 +14,6 @@ const ShopItem = ({ item, addCartItems }) => {
     Toastify({
       text: `Added ${name} to cart`,
       duration: 5000, 
-      destination: "https://github.com/apvarun/toastify-js",
       newWindow: true,
       close: true,
       gravity: "bottom", // `top` or `bottom`

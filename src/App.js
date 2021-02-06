@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 // Components
 import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
+import checkoutPage from './components/Pages/checkout-page'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
 import { fetchCollectionStart } from './Redux/Shop/shop.actions'
@@ -51,6 +52,7 @@ class App extends React.Component {
           <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
+          <Route exact path="/checkout" component={checkoutPage} />
           </Switch>
          
         </div>
