@@ -15,6 +15,7 @@ import SignInModal from '../SignIn-Modal/sign-in-sign-up'
 import CartModal from '../Cart/CartModal'
 import SearchBar from '../SearchBar/SearchBar'
 
+
 const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
 
     const handleClick = () => {
@@ -83,6 +84,7 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
         <div className='header-middle'>
           <div className='container'>
             <div className='header-left'>
+           
               <SearchBar />
             </div>
             <div className='header-center'>
@@ -93,7 +95,9 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
             </div>
             <div className='header-right'>
               <a href='wishlist.html' className='wishlist-link'><i className='icon-heart-o'></i> <span className='wishlist-count'>3</span> <span className='wishlist-txt'>My Wishlist</span></a>
+            
               <CartModal />
+              
             </div>
           </div>
         </div>

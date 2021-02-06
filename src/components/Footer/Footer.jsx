@@ -29,8 +29,8 @@ const Footer = () => {
                                     <h4 className="widget-title">Useful Links</h4>
 
                                     <ul className="widget-list">
-                                        <li><a href="about.html">About Molla</a></li>
-                                        <li><a href="/">How to shop on Molla</a></li>
+                                        <li><a href="about.html">About Shop</a></li>
+                                        <li><a href="/">How to shop</a></li>
                                         <li><a href="/">FAQ</a></li>
                                         <li><a href="contact.html">Contact us</a></li>
                                         <li><a href="login.html">Log in</a></li>

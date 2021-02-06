@@ -39,7 +39,7 @@ const ShopPreview = ({ id, title, items }) => {
 
             <OwlCarousel {...owl_options}>
 
-                    {items.filter((item, index) => index < 4).map((item) => (
+                    {items.filter((item, index) => index < 10).map((item) => (
                         
                         <ShopItem key={item.id} item={item} />
                        

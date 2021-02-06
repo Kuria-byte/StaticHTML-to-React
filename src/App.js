@@ -12,6 +12,7 @@ import { fetchCollectionStart } from './Redux/Shop/shop.actions'
 import { selectIsCollectionFetching } from './Redux/Shop/shop.selector'
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
+import 'react-toastify/dist/ReactToastify.min.css';
 //  <!-- Plugins CSS File -->
 import './assets/css/bootstrap.min.css'
 import './assets/css/plugins/owl-carousel/owl.carousel.css'

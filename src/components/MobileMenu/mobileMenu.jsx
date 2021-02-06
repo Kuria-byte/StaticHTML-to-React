@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-// import {createStructuredSelector} from 'reselect'
 import {toggleMobileMenu} from '../../Redux/Mobile/moile.actions'
-// import {selectMenuHidden} from '../../Redux/Mobile/mobile.selector'
+import DarkModeToggle from '../Buttons/dark-mode'
+
 
 const MobileMenu =({toggleMobileMenu}) => {
     return (
@@ -11,6 +11,8 @@ const MobileMenu =({toggleMobileMenu}) => {
 
             <div className="mobile-menu-container">
                 <div className="mobile-menu-wrapper">
+                
+            <DarkModeToggle/>
                     <span className="mobile-menu-close"><i className="icon-close" onClick={toggleMobileMenu} ></i></span>
         
                     <form action="#" method="get" className="mobile-search">

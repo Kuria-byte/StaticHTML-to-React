@@ -71,7 +71,9 @@ sub {
 img {
     display: block;
     max-width: 100%;
-    height: auto
+    max-height: 90%;
+    height: auto;
+   
 }
 
 .bg-light {
@@ -946,6 +948,7 @@ blockquote.text-white cite span {
 .cart-dropdown .product-image-container {
     position: relative;
     max-width: 60px;
+    max-height: 60px;
     margin: 0;
     margin-left: auto
 }
@@ -6935,7 +6938,8 @@ p {
 .product-image {
     display: block;
     width: 100%;
-    height: auto
+    height: 95%;
+   
 }
 
 .product-image-hover {
@@ -6944,7 +6948,7 @@ p {
     top: 0;
     opacity: 0;
     width: 100%;
-    height: auto;
+    height: 95%;
     transition: all .4s ease
 }
 
@@ -7287,7 +7291,7 @@ p {
     z-index: 10;
     transition: all .35s ease;
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
     transform: translateY(100%)
 }
 
@@ -7377,7 +7381,7 @@ p {
     top: 2rem;
     background-color: transparent;
     z-index: 10;
-    visibility: hidden;
+    visibility: visible;
     opacity: 0;
     transition: all .35s ease;
     transform: translateX(-15px)

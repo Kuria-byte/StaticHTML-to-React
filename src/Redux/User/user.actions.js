@@ -1,3 +1,4 @@
+
  // GOOGLE SIGN IN
  export const googleSignInStart = () =>({
     type : 'GOOGLE_SIGNIN_START'
@@ -5,8 +6,10 @@
 
 export const googleSignInSuccess = (user) =>({
    type : 'GOOGLE_SIGNIN_SUCCESS',
-   payload: user
+   payload: user,
+  
 });
+
 
 export const googleSignInFailure = (error) =>({
    type : 'GOOGLE_SIGNIN_SUCCESS',
