@@ -18,7 +18,7 @@ const ShopItem = ({ item, addCartItems }) => {
       newWindow: true,
       close: true,
       gravity: "bottom", // `top` or `bottom`
-      position: 'left', // `left`, `center` or `right`
+      position: 'center', // `left`, `center` or `right`
       backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
       stopOnFocus: true, 
     }).showToast();
