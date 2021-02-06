@@ -14,13 +14,23 @@ import MobileMenu from '../MobileMenu/mobileMenu'
 import SignInModal from '../SignIn-Modal/sign-in-sign-up'
 import CartModal from '../Cart/CartModal'
 import SearchBar from '../SearchBar/SearchBar'
-
+import Toastify from 'toastify-js'
 
 const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
 
     const handleClick = () => {
         auth.signOut();
         logOut();
+        Toastify({
+          text: `See you soon ${currentUser.displayName} 🙈 `,
+          duration: 5000, 
+          newWindow: true,
+          close: true,
+          gravity: "bottom", // `top` or `bottom`
+          position: 'center', // `left`, `center` or `right`
+          backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
+          stopOnFocus: true, 
+        }).showToast();
       };
 
   return (

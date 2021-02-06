@@ -5,9 +5,6 @@ import Swal from 'sweetalert2';
 import Toastify from 'toastify-js'
 
 
-
-
-
 export function* emailSignUpStart() {
     yield takeLatest('EMAIL_SIGNUP_START', emailSignUp)
 }
@@ -42,14 +39,14 @@ export function* signInWithGoogle() {
         const userSnapShot = yield userRef.get();
         yield put(googleSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
         yield  (Toastify({
-            text: `Welcome ${ userSnapShot.data().displayName}`,
-            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            text: `Welcome ${ userSnapShot.data().displayName} 🎉`,
+            backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
             className: "success",
             duration: 7000, 
             newWindow: true,
             close: true,
-            gravity: "botom", // `top` or `bottom`
-            position: 'right', // `left`, `center` or `right`
+            gravity: "bottom", // `top` or `bottom`
+            position: 'center', // `left`, `center` or `right`
             stopOnFocus: true,
           }).showToast()
 )
