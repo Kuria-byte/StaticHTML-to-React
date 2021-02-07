@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from "react-redux"
 import Swal from 'sweetalert2'
 import StripeCheckout from 'react-stripe-checkout'
+import { removeAllItems } from '../../Redux/Cart/cart.actions'
 
 
-const StripeButton = ({ price }) => {
+
+const StripeButton = ({ price , removeAllItems}) => {
 
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51GtT6REG60pL9LLKS9OU4fum817gXi2wIdqnuzum0XjwwW18bD9zHShhPLssLlMjBmdyYa53RP26h6ShbZ8o3VTn00CZmUz1IP';
@@ -13,7 +16,8 @@ const StripeButton = ({ price }) => {
         Swal.fire({
             icon: 'success',
             title: 'Payment Successful',
-        })
+        });
+        removeAllItems();
     }
 
     return (
@@ -39,4 +43,8 @@ const StripeButton = ({ price }) => {
     )
 }
 
-export default StripeButton;
+const mapDispatchToProps =(dispatch) =>({
+    removeAllItems: () => dispatch(removeAllItems())
+})
+
+export default connect(null, mapDispatchToProps) (StripeButton);

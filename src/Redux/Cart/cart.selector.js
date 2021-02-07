@@ -14,6 +14,7 @@ export const selectCartHidden = createSelector (
 );
 
 
+
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   (cartItems) =>
@@ -33,3 +34,5 @@ export const selectCartTotal = createSelector(
       0
     )
 );
+
+

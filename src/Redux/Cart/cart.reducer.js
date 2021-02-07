@@ -2,7 +2,8 @@ import { addItemToCart, removeItemFromCart } from './cart.utils'
 
 const INITIAL_STATE = {
     hidden: true,
-    cartItems: []
+    cartItems: [],
+
 }
 
 const CartReducer = (state = INITIAL_STATE, action) => {
@@ -36,7 +37,12 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 )
             }
 
-
+            case 'REMOVE_ALL_ITEMS':
+                return {
+                    ...state,
+                    cartItems: INITIAL_STATE.cartItems
+                }
+  
 
         default:
             return state;

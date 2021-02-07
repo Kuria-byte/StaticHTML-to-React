@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer'
 import CheckOutItem from '../CheckOut/checkout-item'
 import CartSummary from '../Cart/CartSummary'
 // utils
-import { selectCartItems, selectCartTotal } from '../../Redux/Cart/cart.selector'
+import { selectCartItems, selectCartTotal} from '../../Redux/Cart/cart.selector'
 //images
 import imageBackground from '../../assets/images/page-header-bg.jpg'
 
@@ -14,7 +14,7 @@ import imageBackground from '../../assets/images/page-header-bg.jpg'
 
 
 
-const checkoutPage = ({ cartItems, total }) => {
+const checkoutPage = ({ cartItems, total, freeShipping,standardfee,expressFee }) => {
     return (
         <div>
 
@@ -52,7 +52,7 @@ const checkoutPage = ({ cartItems, total }) => {
 
                                         <tbody>
                                             {cartItems.map(cartItem => (
-                                                <CheckOutItem key={cartItem.id} cartItem={cartItem}  />
+                                                <CheckOutItem key={cartItem.id} cartItem={cartItem} />
                                             ))}
 
                                         </tbody>
@@ -87,7 +87,8 @@ const checkoutPage = ({ cartItems, total }) => {
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
-    total: selectCartTotal
+    total: selectCartTotal,
+ 
 });
 
 export default connect(mapStateToProps)(checkoutPage);

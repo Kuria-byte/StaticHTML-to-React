@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { toggleMobileMenu } from '../../Redux/Mobile/moile.actions'
@@ -16,7 +17,7 @@ import CartModal from '../Cart/CartModal'
 import SearchBar from '../SearchBar/SearchBar'
 import Toastify from 'toastify-js'
 
-const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
+const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
 
     const handleClick = () => {
         auth.signOut();
@@ -98,9 +99,9 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
               <SearchBar />
             </div>
             <div className='header-center'>
-              <a href='index.html' className='logo'>
+              <a href='/' className='logo'>
                 {/* <img src={logo} alt='logos' style={{height: 125 , width: 130}}></img> */}
-                <Logo/>
+                <Logo onClick={() => { history.push("/");}}/>
               </a>
             </div>
             <div className='header-right'>
@@ -135,7 +136,8 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut}) => {
             <div className='header-right'>
               <i className='la la-lightbulb-o'></i>
               <p>
-                <span>Clearance Up to 30% Off</span>
+              { currentUser ?  <span>{`Howdy, ${currentUser.displayName}`}</span> :  <span>Discounts Up to 20% Off</span>}
+               
               </p>
             </div>
           </div>
@@ -159,4 +161,4 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logOut()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default withRouter (connect(mapStateToProps, mapDispatchToProps)(Header))

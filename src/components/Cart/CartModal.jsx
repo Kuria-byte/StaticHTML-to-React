@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 //utils
 import { selectCartItems } from "../../Redux/Cart/cart.selector";
-import { selectCartItemsCount,selectCartTotal } from '../../Redux/Cart/cart.selector'
+import { selectCartItemsCount,selectCartTotal } from '../../Redux/Cart/cart.selector';
 //component
-import CartItem from './CartItem'
+import CartItem from './CartItem';
 
-const CartModal = ({ cartItems, itemCount , total}) => {
+const CartModal = ({ cartItems, itemCount , total, history}) => {
     return (
         <div>
             <div className="dropdown cart-dropdown">
@@ -32,8 +33,8 @@ const CartModal = ({ cartItems, itemCount , total}) => {
                         <span className="cart-total-price">${total}</span>
                     </div>
                     <div className="dropdown-cart-action">
-                        <a href="cart.html" className="btn btn-primary">View Cart</a>
-                        <a href="checkout.html" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a>
+                        <span className="btn btn-primary" onClick={() => { history.push("/checkout");}} >View Cart</span>
+                        <span className="btn btn-outline-primary-2" onClick={() => { history.push("/checkout");}}><span>Checkout</span><i className="icon-long-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
@@ -49,4 +50,4 @@ const mapStateToProps = createStructuredSelector({
 });
 
 
-export default connect(mapStateToProps)(CartModal);
+export default withRouter (connect(mapStateToProps)(CartModal));
