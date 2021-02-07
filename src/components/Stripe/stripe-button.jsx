@@ -1,23 +1,56 @@
 import React from 'react'
 import { connect } from "react-redux"
+import { createStructuredSelector } from 'reselect'
+//utils
 import Swal from 'sweetalert2'
 import StripeCheckout from 'react-stripe-checkout'
+import emailjs from 'emailjs-com';
+//Selectors
 import { removeAllItems } from '../../Redux/Cart/cart.actions'
+import { selectCurrentUser } from '../../Redux/User/user.selector'
 
 
+const StripeButton = ({ price, removeAllItems, currentUser, cartItem }) => {
 
-const StripeButton = ({ price , removeAllItems}) => {
-
+    //Stripe
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51GtT6REG60pL9LLKS9OU4fum817gXi2wIdqnuzum0XjwwW18bD9zHShhPLssLlMjBmdyYa53RP26h6ShbZ8o3VTn00CZmUz1IP';
 
-    const onToken = token => {
+    var items;
+    function getCartItems(item) {
+        items = [item.name,item.price].join(" ");
+        return items;
+      }
+     
+    const onToken = (token) => {
         console.log(token);
         Swal.fire({
             icon: 'success',
             title: 'Payment Successful',
         });
+        cartItem.map(getCartItems);
+        console.log(cartItem.map(getCartItems));
+        sendEmail();
         removeAllItems();
+    }
+
+    //Emailjs
+    var templateParams = {
+        token: onToken.token,
+        to_name: `${currentUser.displayName}`,
+        from_name: 'Ecommerce Store',
+        message: `${ items} ` ,
+        to_email: `${currentUser.email}`
+    };
+
+
+    function sendEmail() {
+        emailjs.send('service_316jper', 'template_wg1i4e2', templateParams, 'user_xgFmJwDxzgnYRkNSAQouv')
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
     }
 
     return (
@@ -37,14 +70,24 @@ const StripeButton = ({ price , removeAllItems}) => {
 
 
         >
-         <button className="btn btn-outline-primary-2 btn-order btn-block"><span>&#128179;</span>SUBMIT PAYMENT</button>
+            <button className="btn btn-outline-primary-2 btn-order btn-block"><span style={{ paddingRight: "10px" }}>&#128179;</span>SUBMIT PAYMENT</button>
 
         </StripeCheckout>
     )
 }
 
-const mapDispatchToProps =(dispatch) =>({
+const mapDispatchToProps = (dispatch) => ({
     removeAllItems: () => dispatch(removeAllItems())
 })
 
-export default connect(null, mapDispatchToProps) (StripeButton);
+const mapStateToProps = createStructuredSelector({
+
+    currentUser: selectCurrentUser
+
+})
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(StripeButton);

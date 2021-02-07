@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "bootstrap": "^4.6.0",
+    "emailjs": "^3.4.0",
+    "emailjs-com": "^2.6.4",
     "firebase": "^8.2.5",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",

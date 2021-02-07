@@ -1,14 +1,23 @@
 import { React, useState } from 'react'
 import StripeButton from '../Stripe/stripe-button';
+//utils
+import cards from '../../assets/images/payments-summary.png'
 
-const CartSummary = ({ total }) => {
+const CartSummary = ({ total, cartItem }) => {
 
     const [fee, setFee] = useState(0)
+    const [paymentMethod, SetPaymentMethod] = useState('Stripe')
 
     const handleRadioSelect = (event) => {
         const selectedValue = Number(event.target.value);
         parseInt(total)
         setFee(selectedValue)
+
+    }
+
+    const handlePayment = (event) => {
+        const selectedMethod = event.target.id;
+        SetPaymentMethod(selectedMethod)
 
     }
 
@@ -52,7 +61,7 @@ const CartSummary = ({ total }) => {
                         <tr className="summary-shipping-row">
                             <td>
                                 <div className="custom-control custom-radio">
-                                    <input type="radio" id="express-shipping" name="shipping" className="custom-control-input" value={25} onClick={handleRadioSelect}/>
+                                    <input type="radio" id="express-shipping" name="shipping" className="custom-control-input" value={25} onClick={handleRadioSelect} />
                                     <label className="custom-control-label" htmlFor="express-shipping">Express:</label>
                                 </div>
                             </td>
@@ -68,13 +77,82 @@ const CartSummary = ({ total }) => {
                             <td>Total:</td>
                             <td>${total + fee}</td>
                         </tr>
+
+                        <div className="accordion-summary" id="accordion-payment">
+                            <div className="card">
+                                <div className="card-header" id="heading-1">
+                                    <h2 className="card-title">
+                                        <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1" onClick={handlePayment} id="BankTransfer">
+                                            Direct bank transfer
+										                </a>
+                                    </h2>
+                                </div>
+                                <div id="collapse-1" className="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
+                                    <div className="card-body">
+                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+										            </div>
+                                </div>
+                            </div>
+
+
+                            <div className="card">
+                                <div className="card-header" id="heading-3">
+                                    <h2 className="card-title">
+                                        <a className="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3" onClick={handlePayment} id="COD">
+                                            Cash on delivery
+										                </a>
+                                    </h2>
+                                </div>
+                                <div id="collapse-3" className="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
+                                    <div className="card-body">If the goods are not paid for, they are returned to the retailer
+										            </div>
+                                </div>
+                            </div>
+
+
+
+                            <div className="card">
+                                <div className="card-header" id="heading-5">
+                                    <h2 className="card-title">
+                                        <a className="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5" onClick={handlePayment} id="Stripe">
+                                            Credit Card (Stripe)
+										                    <img src={cards} alt="payments cards" />
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapse-5" className="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
+                                    <div className="card-body"> Stripe is a fast & secure way to make online payments
+										            </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </tbody>
                 </table>
-                <StripeButton price={total + fee} />
+
+                {(() => {
+                    if (paymentMethod === "Stripe") {
+                        return (
+                            <StripeButton price={total + fee} cartItem={cartItem} />
+                        )
+                    } else if (paymentMethod === "COD") {
+                        return (
+                            <button className="btn btn-outline-primary-2 btn-order btn-block"><span style={{ paddingRight: "10px" }}>&#128179;</span>CASH ON DELIVERY</button>
+                        )
+                    } else {
+                        return (
+                            <button className="btn btn-outline-primary-2 btn-order btn-block"><span style={{ paddingRight: "10px" }}>&#128179;</span>DIRECT BANK TRANSFER</button>
+                        )
+                    }
+                })()}
+
+
+
 
             </div>
 
-            <a href="category.html" className="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i className="icon-refresh"></i></a>
+            <a href="/" className="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i className="icon-shopping-cart"></i></a>
         </aside>
 
 

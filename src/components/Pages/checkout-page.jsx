@@ -73,7 +73,7 @@ const checkoutPage = ({ cartItems, total, freeShipping,standardfee,expressFee })
                                         <a href="/" className="btn btn-outline-dark-2"><span>UPDATE CART</span><i className="icon-refresh"></i></a>
                                     </div>
                                 </div>
-                                <CartSummary total={total} />
+                                <CartSummary total={total} cartItem={cartItems.map((cartItem , index) => { return(cartItem)} )} />
                             </div>
                         </div>
                     </div>
