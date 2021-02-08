@@ -18,12 +18,14 @@ const StripeButton = ({ price, removeAllItems, currentUser, cartItems }) => {
 
 
 let items;
-    cartItems.forEach(element => {
+    cartItems.forEach((element) => {
         var { name, price } = element
         items = {name , price}
-        console.log(items);
+       
     });
 
+
+    // console.log(cartItems);
 
 
     const onToken = (token) => {

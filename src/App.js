@@ -8,6 +8,7 @@ import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
 import checkoutPage from './components/Pages/checkout-page'
 import ShopPage from './components/Pages/shoppage'
+import ShopTest from './components/Pages/shoppage'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
 import { fetchCollectionStart } from './Redux/Shop/shop.actions'
@@ -56,6 +57,7 @@ class App extends React.Component {
           <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
           <Route exact path="/checkout" component={checkoutPage} />
           <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/tester" component={ShopTest} />
         
           </Switch>
          
