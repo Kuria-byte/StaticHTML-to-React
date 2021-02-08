@@ -33,8 +33,8 @@ const CartModal = ({ cartItems, itemCount , total, history}) => {
                         <span className="cart-total-price">${total}</span>
                     </div>
                     <div className="dropdown-cart-action">
-                        <span className="btn btn-primary" onClick={() => { history.push("/checkout");}} >View Cart</span>
-                        <span className="btn btn-outline-primary-2" onClick={() => { history.push("/checkout");}}><span>Checkout</span><i className="icon-long-arrow-right"></i></span>
+                        <a href="/checkout" className="btn btn-primary"  >View Cart</a>
+                        <a href="/checkout" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
