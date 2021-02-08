@@ -28,7 +28,7 @@ const ShopPage = ({ collections }) => {
         <main className="main">
             <div className="page-header text-center" style={{ backgroundImage: `url(${imageBackground})` }}>
                 <div className="container">
-                    <h1 className="page-title">Fashion Store<span>Shop</span></h1>
+                    <h1 className="page-title"> {userSelect} Store<span>Shop</span></h1>
                 </div>
             </div>
             <nav aria-label="breadcrumb" className="breadcrumb-nav mb-2">
@@ -48,7 +48,7 @@ const ShopPage = ({ collections }) => {
                         </div>
                         <div className="toolbox-center">
                             <div className="toolbox-info">
-                                Showing <span>all</span> Products
+                                Showing <span>{userSelect}</span> Products
                             </div>
                         </div>
 
