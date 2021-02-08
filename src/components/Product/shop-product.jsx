@@ -27,9 +27,9 @@ const ShopProduct = ({ item, title, addCartItems }) => {
             <div className="product">
                 <figure className="product-media">
                     <span className="product-label label-new">New</span>
-                    <a href="product.html">
+                    <span>
                         <img src={imageUrl} alt="Product " className="product-image" />
-                    </a>
+                    </span>
 
                     <div className="product-action-vertical">
                         <a href="/" className="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -43,7 +43,7 @@ const ShopProduct = ({ item, title, addCartItems }) => {
 
                 <div className="product-body">
                     <div className="product-cat">
-                        <a href="/">{title}</a>
+                        <span>{title}</span>
                     </div>
                     <h3 className="product-title"><a href="/">{name}</a></h3>
                     <div className="product-price">

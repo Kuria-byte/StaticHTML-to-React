@@ -41,7 +41,7 @@ const ShopItem = ({ item, addCartItems }) => {
         <div className='product-cat'>
           <span>Clothing</span>
         </div>
-        <h3 className='product-title'><a href='/'>{name}</a></h3>
+        <h3 className='product-title'><span>{name}</span></h3>
         <div className='product-price'>
           ${price}
         </div>

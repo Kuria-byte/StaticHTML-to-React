@@ -24,15 +24,15 @@ const MobileMenu =({toggleMobileMenu}) => {
                     <nav className="mobile-nav">
                         <ul className="mobile-menu">
                             <li className="active">
-                                <a href="index.html">Home</a>
+                                <a href="/">Home</a>
 
                                 <ul>
-                                    <li><a href="index-1.html">01 - furniture store</a></li>
+                                    {/* <li><a href="index-1.html">01 - furniture store</a></li> */}
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="category.html">Shop</a>
+                                <a href="/shop">Shop</a>
                                 <ul>
                                     <li><a href="category-list.html">Shop List</a></li>
                                     
