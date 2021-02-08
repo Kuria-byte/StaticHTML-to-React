@@ -33,7 +33,7 @@ const CartModal = ({ cartItems, itemCount , total, history}) => {
                         <span className="cart-total-price">${total}</span>
                     </div>
                     <div className="dropdown-cart-action">
-                        <a href="/checkout" className="btn btn-primary"  >View Cart</span>
+                        <a href="/checkout" className="btn btn-primary"  >View Cart</a>
                         <a href="/checkout" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a>
                     </div>
                 </div>
