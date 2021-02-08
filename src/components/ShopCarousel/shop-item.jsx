@@ -27,7 +27,7 @@ const ShopItem = ({ item, addCartItems , addWishItem}) => {
   async function wishAdd() {
     addWishItem(item);
     Toastify({
-      text: `Added ${name} to your WishList`,
+      text: `Added ${name} to WishList`,
       duration: 5000, 
       newWindow: true,
       close: true,

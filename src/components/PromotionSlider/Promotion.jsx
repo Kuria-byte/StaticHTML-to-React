@@ -23,13 +23,13 @@ const Promotion = () => {
                             <div className="row deal-products">
                                 <div className="col-6 deal-product text-center">
                                     <figure className="product-media">
-                                        <a href="product.html">
+                                        <a href="/">
                                             <img src={product3} alt="Product" className="product-image" />
                                         </a>
                                     </figure>
 
                                     <div className="product-body">
-                                        <h3 className="product-title"><a href="product.html">Elasticated cotton shorts</a></h3>
+                                        <h3 className="product-title"><a href="/">Elasticated cotton shorts</a></h3>
                                         <div className="product-price">
                                             <span className="new-price">Now $24.99</span>
                                             <span className="old-price">Was $30.99</span>
@@ -39,13 +39,13 @@ const Promotion = () => {
                                 </div>
                                 <div className="col-6 deal-product text-center">
                                     <figure className="product-media">
-                                        <a href="product.html">
+                                        <a href="/">
                                             <img src={product2} alt="Product" className="product-image" />
                                         </a>
                                     </figure>
 
                                     <div className="product-body">
-                                        <h3 className="product-title"><a href="product.html">Fine-knit jumper</a></h3>
+                                        <h3 className="product-title"><a href="/">Fine-knit jumper</a></h3>
                                         <div className="product-price">
                                             <span className="new-price">Now $8.99</span>
                                             <span className="old-price">Was $17.99</span>

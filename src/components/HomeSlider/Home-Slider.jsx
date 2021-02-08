@@ -43,8 +43,8 @@ function HomeSlider() {
                     <div className="intro-slide" style={{ backgroundImage: `url(${Slider1})`}} >
                         <div className="container intro-content text-center">
                             <h3 className="intro-subtitle text-white">You're Looking Good</h3>
-                              <h1 className="intro-title text-white">New Lookbook</h1>
-                            <a href="category.html" className="btn btn-outline-white-4">
+                              <h1 className="intro-title text-white">Tailored Look</h1>
+                            <a href="/shop" className="btn btn-outline-white-4">
                                 <span>Discover More</span>
                             </a>
                         </div>
@@ -53,8 +53,8 @@ function HomeSlider() {
                     <div className="intro-slide"  style={{ backgroundImage: `url(${Slider2})`,}} >
                         <div className="container intro-content text-center">
                             <h3 className="intro-subtitle text-white">Don’t Miss</h3>
-                            <h1 className="intro-title text-white">Mysrety Deals</h1>
-                            <a href="category.html" className="btn btn-outline-white-4" >
+                            <h1 className="intro-title text-white"> Women in style </h1>
+                            <a href="/shop" className="btn btn-outline-white-4" >
                                 <span>Discover More</span>
                             </a>
                         </div>

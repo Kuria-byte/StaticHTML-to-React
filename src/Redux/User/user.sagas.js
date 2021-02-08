@@ -24,7 +24,7 @@ export function* emailSignUp({ payload: { email, password, displayName } }) {
             icon: 'success',
             title: 'Cheers 🎉',
             text: (`${userSnapShot.data().displayName }'s account created successfully`),
-            footer: `<a href ="/">Login in to start sh opping</a>`
+            footer: `<a href ="/">Login in to start shopping</a>`
         })
     }
     catch (error) {
