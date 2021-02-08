@@ -17,34 +17,15 @@ export function* emailSignUp({ payload: { email, password, displayName } }) {
         const userRef = yield createUserProfileDocument(user, { displayName });
         const userSnapShot = yield userRef.get();
         yield put(emailSignUpSuccssful({ id: userSnapShot.id, ...userSnapShot.data() }));
-        yield (Toastify({
-            text: `${userSnapShot.data().email} Account's created successfully 🎉`,
-            backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
-            className: "success",
-            duration: 5000,
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: 'center', // `left`, `center` or `right`
-            stopOnFocus: true,
-        }).showToast()
 
-        )
+        yield setTimeout(3000);
 
-    
-        yield (Toastify({
-            text: ` Login to start shopping! `,
-            backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
-            className: "success",
-            duration: 9000,
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: 'center', // `left`, `center` or `right`
-            stopOnFocus: true,
-        }).showToast()
-
-        )
+        yield Swal.fire({
+            icon: 'success',
+            title: 'Cheers 🎉',
+            text: (`${userSnapShot.data().displayName }'s account created successfully`),
+            footer: `<a href ="/">Login in to start sh opping</a>`
+        })
     }
     catch (error) {
         yield Swal.fire({
