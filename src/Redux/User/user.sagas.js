@@ -16,7 +16,19 @@ export function* emailSignUp({ payload: { email, password, displayName } }) {
         const { user } = yield auth.createUserWithEmailAndPassword(email, password);
         const userRef = yield createUserProfileDocument(user, { displayName });
         const userSnapShot = yield userRef.get();
-        yield put(emailSignUpSuccssful({ id: userSnapShot.id, ...userSnapShot.data() }))
+        yield put(emailSignUpSuccssful({ id: userSnapShot.id, ...userSnapShot.data() }));
+        yield  (Toastify({
+            text: `${ userSnapShot.data().email} Account's created successfully, login in to continue 🎉`,
+            backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
+            className: "success",
+            duration: 5000, 
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: 'center', // `left`, `center` or `right`
+            stopOnFocus: true,
+          }).showToast()
+)
     }
     catch (error) {
         yield Swal.fire({
@@ -33,7 +45,7 @@ export function* emailSignUp({ payload: { email, password, displayName } }) {
 export function* signInWithGoogle() {
 
     try {
-
+        
         const { user } = yield auth.signInWithPopup(googleProvider);
         const userRef = yield createUserProfileDocument(user);
         const userSnapShot = yield userRef.get();
@@ -73,8 +85,20 @@ export function* signInWithEmail({ payload: { email, password } }) {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
         const userRef = yield createUserProfileDocument(user);
         const userSnapShot = yield userRef.get();
-        yield put(emailSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }))
-
+        yield put(emailSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
+        yield  (Toastify({
+            text: `Signed in as ${ userSnapShot.data().email} 🎉`,
+            backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
+            className: "success",
+            duration: 7000, 
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: 'center', // `left`, `center` or `right`
+            stopOnFocus: true,
+          }).showToast()
+)
+        
 
     } catch (error) {
         yield Swal.fire({

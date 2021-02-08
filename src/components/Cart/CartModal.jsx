@@ -8,7 +8,7 @@ import { selectCartItemsCount,selectCartTotal } from '../../Redux/Cart/cart.sele
 //component
 import CartItem from './CartItem';
 
-const CartModal = ({ cartItems, itemCount , total, history}) => {
+const CartModal = ({ cartItems, itemCount , total, currentUser}) => {
     return (
     
             <div className="dropdown cart-dropdown">
@@ -26,15 +26,17 @@ const CartModal = ({ cartItems, itemCount , total, history}) => {
                         ))}
 
                     </div>
-
+               
                     <div className="dropdown-cart-total">
                         <span>Total</span>
 
                         <span className="cart-total-price">${total}</span>
                     </div>
                     <div className="dropdown-cart-action">
+                  
                         <a href="/checkout" className="btn btn-primary"  >View Cart</a>
                         <a href="/checkout" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a>
+                       
                     </div>
                 </div>
             </div>

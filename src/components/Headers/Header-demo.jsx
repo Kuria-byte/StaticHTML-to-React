@@ -79,7 +79,7 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history }) => {
                 <li>
                   <a href='/'>Links</a>
                   <ul>
-                    {currentUser ?
+                    { currentUser  ?
                       (<li>
                         <span data-toggle='modal' onClick={handleClick}><i className='icon-user'></i>Logout</span>
                       </li>) :
