@@ -121,7 +121,7 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
                     <a href='/' className='sf-with-ul'>Home</a>
                   </li>
                   <li>
-                    <a href='category.html' className='sf-with-ul'>Shop</a>
+                    <a href='/shop' className='sf-with-ul'>Shop</a>
                   </li>
                   <li>
                     <a href='blog.html' className='sf-with-ul'>Blog</a>

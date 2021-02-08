@@ -3,7 +3,7 @@ import StripeButton from '../Stripe/stripe-button';
 //utils
 import cards from '../../assets/images/payments-summary.png'
 
-const CartSummary = ({ total, cartItem }) => {
+const CartSummary = ({ total, cartItems }) => {
 
     const [fee, setFee] = useState(0)
     const [paymentMethod, SetPaymentMethod] = useState('Stripe')
@@ -134,7 +134,7 @@ const CartSummary = ({ total, cartItem }) => {
                 {(() => {
                     if (paymentMethod === "Stripe") {
                         return (
-                            <StripeButton price={total + fee} cartItem={cartItem} />
+                            <StripeButton price={total + fee} cartItems={cartItems} />
                         )
                     } else if (paymentMethod === "COD") {
                         return (

@@ -10,36 +10,39 @@ import { removeAllItems } from '../../Redux/Cart/cart.actions'
 import { selectCurrentUser } from '../../Redux/User/user.selector'
 
 
-const StripeButton = ({ price, removeAllItems, currentUser, cartItem }) => {
+const StripeButton = ({ price, removeAllItems, currentUser, cartItems }) => {
 
     //Stripe
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51GtT6REG60pL9LLKS9OU4fum817gXi2wIdqnuzum0XjwwW18bD9zHShhPLssLlMjBmdyYa53RP26h6ShbZ8o3VTn00CZmUz1IP';
 
-    var items;
-    function getCartItems(item) {
-        items = [item.name,item.price].join(" ");
-        return items;
-      }
-     
+
+let items;
+    cartItems.forEach(element => {
+        var { name, price } = element
+        items = {name , price}
+        console.log(items);
+    });
+
+
+
     const onToken = (token) => {
         console.log(token);
         Swal.fire({
             icon: 'success',
             title: 'Payment Successful',
         });
-        cartItem.map(getCartItems);
-        console.log(cartItem.map(getCartItems));
+     
         sendEmail();
-        removeAllItems();
+        // removeAllItems();
     }
 
     //Emailjs
     var templateParams = {
-        token: onToken.token,
+
         to_name: `${currentUser.displayName}`,
         from_name: 'Ecommerce Store',
-        message: `${ items} ` ,
+        message: `${items.name + items.price}`,
         to_email: `${currentUser.email}`
     };
 
@@ -52,6 +55,8 @@ const StripeButton = ({ price, removeAllItems, currentUser, cartItem }) => {
                 console.log('FAILED...', error);
             });
     }
+
+    
 
     return (
         <StripeCheckout
@@ -66,8 +71,6 @@ const StripeButton = ({ price, removeAllItems, currentUser, cartItem }) => {
             panelLabel='Pay Now'
             token={onToken}
             stripeKey={publishableKey}
-
-
 
         >
             <button className="btn btn-outline-primary-2 btn-order btn-block"><span style={{ paddingRight: "10px" }}>&#128179;</span>SUBMIT PAYMENT</button>
