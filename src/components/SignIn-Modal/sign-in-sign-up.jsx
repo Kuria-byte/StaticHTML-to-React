@@ -2,28 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Swal from 'sweetalert2'
 // Utils
-import { googleSignInStart, emailSignInStart ,  emailSignUpStart} from '../../Redux/User/user.actions'
+import { googleSignInStart, emailSignInStart, emailSignUpStart } from '../../Redux/User/user.actions'
 
 
 class SignInModal extends Component {
-    
-
     constructor(props) {
-
         super(props);
-
         this.state = {
             displayName: '',
             password: '',
             email: '',
             show: false
         };
-        
     }
 
-   
 
-    handleSubmit = async (event) => {
+    handleSignin = async (event) => {
         event.preventDefault();
         const { emailSignInStart } = this.props;
         const { email, password } = this.state;
@@ -31,33 +25,29 @@ class SignInModal extends Component {
         emailSignInStart(email, password);
     }
 
-    
-    handleEmailSignUp = async event => {
+    handleEmailSignUp = async (event) => {
         event.preventDefault();
-    
-         const { displayName, email, password } = this.state;
-         const { emailSignUpStart} = this.props
-    
-        try {
-          emailSignUpStart(email,password,displayName);
+        const { displayName, email, password } = this.state;
+        const { emailSignUpStart } = this.props
 
-          this.setState({
-            displayName: '',
-            email: '',
-            password: '',
-          });
+        try {
+            emailSignUpStart(email, password, displayName);
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+            });
         }
-        
+
         catch (error) {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Oops...',
-            text: (error),
-            footer: '<a href>Why do I have this issue?</a>'
-          })
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: (error),
+                footer: '<a href>Why do I have this issue?</a>'
+            })
         }
-      };
-    
+    };
 
 
     handleChange = (event) => {
@@ -90,18 +80,18 @@ class SignInModal extends Component {
                                     </ul>
                                     <div className="tab-content" id="tab-content-5">
                                         <div className="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                                            <form onSubmit={this.handleSubmit} >
+                                            <form onSubmit={this.handleSignin} >
 
-                                            <div className="form-group">
+                                                <div className="form-group">
                                                     <label htmlFor="register-email">Your email address *</label>
-                                                    <input type="email"  className="form-control"  onChange={this.handleChange} defaultValue={this.state.email} name="email"  required />
+                                                    <input type="email" className="form-control" onChange={this.handleChange} defaultValue={this.state.email} name="email" required />
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="register-password">Password *</label>
-                                                    <input type="password" className="form-control"  defaultValue={this.state.password} onChange={this.handleChange} name="password" required />
+                                                    <input type="password" className="form-control" defaultValue={this.state.password} onChange={this.handleChange} name="password" required />
                                                 </div>
-                                          
+
                                                 <div className="form-footer">
                                                     <button type="submit" className="btn btn-outline-primary-2">
                                                         <span onClick={emailSignInStart}>LOG IN</span>
@@ -135,29 +125,29 @@ class SignInModal extends Component {
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                            <form action="#">
-                                            <div className="form-group">
+                                            <form onSubmit={this.handleEmailSignUp}>
+                                                <div className="form-group">
                                                     <label htmlFor="register-user">Full name *</label>
-                                                    <input type="text" className="form-control" defaultValue={this.displayName} onChange={this.handleChange}  name="displayName" required />
+                                                    <input type="text" className="form-control" defaultValue={this.displayName} onChange={this.handleChange} name="displayName" required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="register-email1">Email address *</label>
-                                                    <input type="email" className="form-control" defaultValue={this.email}  onChange={this.handleChange} name="email" required />
+                                                    <input type="email" className="form-control" defaultValue={this.email} onChange={this.handleChange} name="email" required />
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="register-password1">Password *</label>
-                                                    <input type="password" className="form-control" defaultValue={this.password} onChange={this.handleChange}  name="password" required />
+                                                    <input type="password" className="form-control" defaultValue={this.password} onChange={this.handleChange} name="password" required />
                                                 </div>
                                                 <div className="form-footer">
                                                     <button type="submit" className="btn btn-outline-primary-2">
-                                                        <span onClick={ this.handleEmailSignUp} >SIGN UP</span>
+                                                        <span onClick={emailSignUpStart} >SIGN UP</span>
                                                         <i className="icon-long-arrow-right"></i>
                                                     </button>
 
                                                     <div className="custom-control custom-checkbox">
                                                         <input type="checkbox" className="custom-control-input" id="register-policy" required />
-                                                        <label className="custom-control-label" htmlFor="register-policy">I agree to the <a href="/">privacy policy</a> *</label>
+                                                        <label className="custom-control-label" htmlFor="register-policy">I agree to the <span>privacy policy</span> *</label>
                                                     </div>
                                                 </div>
                                             </form>
@@ -195,7 +185,7 @@ const mapDispatchToProps = (dispatch) => ({
 
     googleSignInStart: () => dispatch(googleSignInStart()),
     emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password })),
-    emailSignUpStart: (email, password,displayName) => dispatch(emailSignUpStart({ email, password, displayName }))
+    emailSignUpStart: (email, password, displayName) => dispatch(emailSignUpStart({ email, password, displayName }))
 
 })
 
