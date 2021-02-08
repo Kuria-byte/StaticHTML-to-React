@@ -10,7 +10,7 @@ import CartItem from './CartItem';
 
 const CartModal = ({ cartItems, itemCount , total, history}) => {
     return (
-        <div>
+    
             <div className="dropdown cart-dropdown">
                 <a href="/" className="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                     <i className="icon-shopping-cart"></i>
@@ -39,7 +39,7 @@ const CartModal = ({ cartItems, itemCount , total, history}) => {
                 </div>
             </div>
 
-        </div>
+       
     )
 }
 

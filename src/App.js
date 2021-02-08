@@ -29,6 +29,7 @@ import './assets/css/demos/demo-6.css'
 
 
 
+
 class App extends React.Component {
 
   unsubscribeFromAuth = null;
@@ -55,7 +56,7 @@ class App extends React.Component {
           <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
           <Route exact path="/checkout" component={checkoutPage} />
           <Route exact path="/shop" component={ShopPage} />
-          {/* <Route exact path="/" render={props => (<ShopPage isLoading={isCollectionFetching} {...props} />)} /> */}
+        
           </Switch>
          
         </div>
@@ -72,7 +73,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isCollectionFetching: selectIsCollectionFetching,
-
+ 
 });
 
 

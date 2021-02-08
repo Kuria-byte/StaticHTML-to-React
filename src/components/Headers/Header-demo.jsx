@@ -5,34 +5,35 @@ import { createStructuredSelector } from 'reselect'
 import { toggleMobileMenu } from '../../Redux/Mobile/moile.actions'
 import { selectMenuHidden } from '../../Redux/Mobile/mobile.selector'
 import { selectCurrentUser } from '../../Redux/User/user.selector'
-import { logOut} from '../../Redux/User/user.actions'
+import { logOut } from '../../Redux/User/user.actions'
 // Resources
 import { ReactComponent as Logo } from '../../Images/logo1.svg'
 //utils
-import { auth} from '../../Firebase/firebase.utils'
+import { auth } from '../../Firebase/firebase.utils'
 // components
 import MobileMenu from '../MobileMenu/mobileMenu'
 import SignInModal from '../SignIn-Modal/sign-in-sign-up'
 import CartModal from '../Cart/CartModal'
 import SearchBar from '../SearchBar/SearchBar'
 import Toastify from 'toastify-js'
+import WishList from './Wish-list';
 
-const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
+const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history }) => {
 
-    const handleClick = () => {
-        auth.signOut();
-        logOut();
-        Toastify({
-          text: `See you soon ${currentUser.displayName} 🙈 `,
-          duration: 5000, 
-          newWindow: true,
-          close: true,
-          gravity: "bottom", // `top` or `bottom`
-          position: 'center', // `left`, `center` or `right`
-          backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
-          stopOnFocus: true, 
-        }).showToast();
-      };
+  const handleClick = () => {
+    auth.signOut();
+    logOut();
+    Toastify({
+      text: `See you soon ${currentUser.displayName} 🙈 `,
+      duration: 5000,
+      newWindow: true,
+      close: true,
+      gravity: "bottom", // `top` or `bottom`
+      position: 'center', // `left`, `center` or `right`
+      backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
+      stopOnFocus: true,
+    }).showToast();
+  };
 
   return (
     <div>
@@ -79,13 +80,13 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
                   <a href='/'>Links</a>
                   <ul>
                     {currentUser ?
-                       (  <li>
-                            <span data-toggle='modal' onClick={handleClick}><i className='icon-user'></i>Logout</span>
-                          </li>) :
-                           (<li>
-                            <a href='#signin-modal' data-toggle='modal'><i className='icon-user'></i>Login</a>
-                        </li>
-                        )}
+                      (<li>
+                        <span data-toggle='modal' onClick={handleClick}><i className='icon-user'></i>Logout</span>
+                      </li>) :
+                      (<li>
+                        <a href='#signin-modal' data-toggle='modal'><i className='icon-user'></i>Login</a>
+                      </li>
+                      )}
                   </ul>
                 </li>
               </ul>
@@ -95,20 +96,20 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
         <div className='header-middle'>
           <div className='container'>
             <div className='header-left'>
-           
+
               <SearchBar />
             </div>
             <div className='header-center'>
               <a href='/' className='logo'>
                 {/* <img src={logo} alt='logos' style={{height: 125 , width: 130}}></img> */}
-                <Logo onClick={() => { history.push("/");}}/>
+                <Logo onClick={() => { history.push("/"); }} />
               </a>
             </div>
             <div className='header-right'>
-              <a href='wishlist.html' className='wishlist-link'><i className='icon-heart-o'></i> <span className='wishlist-count'>3</span> <span className='wishlist-txt'>My Wishlist</span></a>
-            
+              <WishList />
+
               <CartModal />
-              
+
             </div>
           </div>
         </div>
@@ -136,15 +137,15 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history}) => {
             <div className='header-right'>
               <i className='la la-lightbulb-o'></i>
               <p>
-              { currentUser ?  <span>{`Howdy, ${currentUser.displayName}`}</span> :  <span>Discounts Up to 20% Off</span>}
-               
+                {currentUser ? <span>{`Howdy, ${currentUser.displayName}`}</span> : <span>Discounts Up to 20% Off</span>}
+
               </p>
             </div>
           </div>
         </div>
         {hidden === false ? <MobileMenu /> : ''}
       </header>
-      <SignInModal />
+      <SignInModal hidden={hidden} />
     </div>
 
   )
@@ -161,4 +162,4 @@ const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logOut()),
 })
 
-export default withRouter (connect(mapStateToProps, mapDispatchToProps)(Header))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

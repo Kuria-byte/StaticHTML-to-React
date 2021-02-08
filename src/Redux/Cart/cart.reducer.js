@@ -3,6 +3,7 @@ import { addItemToCart, removeItemFromCart } from './cart.utils'
 const INITIAL_STATE = {
     hidden: true,
     cartItems: [],
+ 
 
 }
 
@@ -21,11 +22,11 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 cartItems: addItemToCart(state.cartItems, action.payload)
             }
 
+
         case 'REMOVE_ITEM':
             return {
                 ...state,
                 cartItems: removeItemFromCart(state.cartItems, action.payload)
-
             }
 
         //The filter() method creates a new array with all elements that pass the test implemented by the provided function.
@@ -37,12 +38,12 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 )
             }
 
-            case 'REMOVE_ALL_ITEMS':
-                return {
-                    ...state,
-                    cartItems: INITIAL_STATE.cartItems
-                }
-  
+        case 'REMOVE_ALL_ITEMS':
+            return {
+                ...state,
+                cartItems: INITIAL_STATE.cartItems
+            }
+
 
         default:
             return state;

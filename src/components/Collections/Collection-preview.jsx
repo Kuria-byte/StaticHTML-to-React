@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { withRouter } from 'react-router-dom';
 
 
@@ -14,7 +15,8 @@ const CollectionPreview = ({ title, imageUrl, size, history, linkUrl, match }) =
                     <div className="banner-content banner-content-center" >
                         <h4 className="banner-subtitle text-white"><a href="/">New in</a></h4>
                         <h3 className="banner-title text-white"><a href="/"><strong>{title.toUpperCase()}</strong></a></h3>
-                        <span className="btn btn-outline-white banner-link underline" onClick={() => history.push(`${match.url}${linkUrl}`)}>Shop Now</span>
+                        <a href="/shop" className="btn btn-outline-white banner-link underline" >Shop Now</a>
+                        {/* <a href="/shop" className="btn btn-outline-white banner-link underline">Shop Now</a> */}
                     </div>
                 </div>
             </div>

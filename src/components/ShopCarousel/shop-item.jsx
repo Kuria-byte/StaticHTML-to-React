@@ -4,8 +4,9 @@ import Toastify from 'toastify-js'
 
 //utils
 import { addCartItems } from '../../Redux/Cart/cart.actions'
+import { addWishItem } from '../../Redux/Wish/wish.actions'
 
-const ShopItem = ({ item, addCartItems }) => {
+const ShopItem = ({ item, addCartItems , addWishItem}) => {
 
   const { name, price, imageUrl } = item;
 
@@ -13,6 +14,20 @@ const ShopItem = ({ item, addCartItems }) => {
     addCartItems(item);
     Toastify({
       text: `Added ${name} to cart`,
+      duration: 5000, 
+      newWindow: true,
+      close: true,
+      gravity: "bottom", // `top` or `bottom`
+      position: 'center', // `left`, `center` or `right`
+      backgroundColor: "linear-gradient(to right top, #cc9966, #c6946c, #bf9072, #b68c77, #ac897b)",
+      stopOnFocus: true, 
+    }).showToast();
+  }
+
+  async function wishAdd() {
+    addWishItem(item);
+    Toastify({
+      text: `Added ${name} to your WishList`,
       duration: 5000, 
       newWindow: true,
       close: true,
@@ -31,7 +46,7 @@ const ShopItem = ({ item, addCartItems }) => {
         <img src={imageUrl} alt='Product' className='product-image' />
         {/* <img src={imageUrl} alt='Product' className='product-image-hover' /> */}
         <div className='product-action-vertical'>
-          <span className='btn-product-icon btn-wishlist btn-expandable'><span>add to wishlist</span></span>
+          <span className='btn-product-icon btn-wishlist btn-expandable' onClick={ ()=> wishAdd()}><span>add to wishlist</span></span>
         </div>
         <div className='product-action'>
           <span className='btn-product btn-cart' onClick={() => cartAdd()}><span>add to cart</span></span>
@@ -53,7 +68,8 @@ const ShopItem = ({ item, addCartItems }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addCartItems: item => dispatch(addCartItems(item))
+  addCartItems: item => dispatch(addCartItems(item)),
+  addWishItem: item => dispatch(addWishItem(item))
 })
 
 export default connect(null, mapDispatchToProps)(ShopItem)

@@ -1,35 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
 //utils
-import { selectCollectioinForPreview } from '../../Redux/Shop/shop.selector'
+import { selectCollection, selectCollectioinForPreview } from '../../Redux/Shop/shop.selector'
 //images
 import imageBackground from '../../assets/images/page-header-bg.jpg'
-//component
+//components
+
 import CollectionHolder from '../Product/collection-holder'
 
-const ShopPage = ({ collections }) => {
-    
 
-var collectionArraywithObjects = collections.map(item => ({ id : item.id, title: item.title, items:{ ...item.items}}))
-var collectionItems ={...collectionArraywithObjects}
-console.log(collectionItems);
+const CollectionPage = ({ collection, collections }) => {
+    const { title } = collection;
 
     return (
 
         <main className="main">
             <div className="page-header text-center" style={{ backgroundImage: `url(${imageBackground})` }}>
                 <div className="container">
-                    <h1 className="page-title">Fashion Store<span>Shop</span></h1>
+                    <h1 className="page-title">{title}<span>Shop</span></h1>
                 </div>
             </div>
             <nav aria-label="breadcrumb" className="breadcrumb-nav mb-2">
                 <div className="container">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li className="breadcrumb-item"><a href="/">Home</a></li>
                         <li className="breadcrumb-item"><a href="/">Shop</a></li>
-                        <li className="breadcrumb-item"><a href="/">No Sidebar</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Boxed</li>
+
                     </ol>
                 </div>
             </nav>
@@ -42,7 +38,7 @@ console.log(collectionItems);
                         </div>
                         <div className="toolbox-center">
                             <div className="toolbox-info">
-                                Showing <span>All</span> Products
+                                Showing <span>{title}</span> Products
                             </div>
                         </div>
 
@@ -61,13 +57,16 @@ console.log(collectionItems);
                     </div>
 
                     <div className="products">
-                    
+
                         <div className="row">
+
+                            {/* {items.map(item => (
+                                <ShopProduct key={item.id} item={item} />
+                            ))} */}
 
                             {collections.map(({ id, ...otherCollectionProps }) => (
                                 <CollectionHolder key={id} {...otherCollectionProps} />
                             ))}
-
 
                         </div>
 
@@ -334,8 +333,9 @@ console.log(collectionItems);
     )
 }
 
-const mapStateToProps = createStructuredSelector({
+const mapStateToProps = (state, ownProps) => ({
+    collection: selectCollection(ownProps.match.params.collectionId)(state),
     collections: selectCollectioinForPreview
-})
+});
 
-export default connect(mapStateToProps)(ShopPage);
+export default connect(mapStateToProps)(CollectionPage);
