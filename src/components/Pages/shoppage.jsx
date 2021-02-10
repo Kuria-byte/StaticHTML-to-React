@@ -58,8 +58,8 @@ const ShopPage = ({ collections }) => {
                                 <div className="select-custom">
                                     <select className="form-control"  onChange={handleRadioSelect}>
                                         <option value="Hats" >Hats</option>
-                                        <option selected value="Womens">women</option>
-                                        <option value="Mens">men</option>
+                                        <option selected value="Womens">Women</option>
+                                        <option value="Mens">Men</option>
                                         <option value="Jackets">Jackets</option>
                                         <option value="Sneakers">Sneakers</option>
                                     </select>

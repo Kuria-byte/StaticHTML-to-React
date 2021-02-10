@@ -8,11 +8,11 @@ import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
 import checkoutPage from './components/Pages/checkout-page'
 import ShopPage from './components/Pages/shoppage'
-import ShopTest from './components/Pages/shoppage'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
 import { fetchCollectionStart } from './Redux/Shop/shop.actions'
 import { selectIsCollectionFetching } from './Redux/Shop/shop.selector'
+import { SpinnerRoundFilled , SpinnerDotted } from 'spinners-react';
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -45,7 +45,14 @@ class App extends React.Component {
 
 
   render() {
-    const { isCollectionFetching } = this.props;
+    const { isCollectionFetching, currentUser } = this.props;
+    const styles = {
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: "250px",
+      fontSize: 200
+    };
 
     return (
 
@@ -53,14 +60,24 @@ class App extends React.Component {
         <div class='page-wrapper'>
           <Header />
           <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
-          <Route exact path="/checkout" component={checkoutPage} />
-          <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/tester" component={ShopTest} />
-        
+            {
+              isCollectionFetching ?
+                <SpinnerRoundFilled size={100} thickness={180} speed={90} color="rgba(172, 137, 57, 1)" style={styles} /> :
+                <Route exact path="/" render={props => (<HomePage isLoading={isCollectionFetching} {...props} />)} />
+            }
+            {
+              currentUser === null / undefined ?
+                <SpinnerDotted size={100} thickness={180} speed={91} color="rgba(172, 137, 57, 1)" style={styles} /> :
+                <Route exact path="/checkout" component={checkoutPage} />
+            }
+
+
+            {isCollectionFetching ?
+              <SpinnerRoundFilled size={100} thickness={180} speed={91} color="rgba(172, 137, 57, 1)" style={styles} /> :
+              <Route exact path="/shop" component={ShopPage} />}
+
           </Switch>
-         
+
         </div>
       </div>
 
@@ -75,8 +92,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   isCollectionFetching: selectIsCollectionFetching,
- 
 });
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

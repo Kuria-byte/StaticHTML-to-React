@@ -3,18 +3,7 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 //utils
 import { selectCollectioinForPreview } from '../../Redux/Shop/shop.selector'
-// import OwlCarousel from 'react-owl-carousel';
-// Product Images
-// import product1 from '../../assets/images/demos/demo-6/products/product-1-1.jpg'
-// import product2 from '../../assets/images/demos/demo-6/products/product-2-1.jpg'
-// import product3 from '../../assets/images/demos/demo-6/products/product-3-1.jpg'
-// import product4 from '../../assets/images/demos/demo-6/products/product-1-2.jpg'
-// import product5 from '../../assets/images/demos/demo-6/products/product-4-1.jpg'
-// import product6 from '../../assets/images/demos/demo-6/products/product-4-2.jpg'
-// import ShopItem from './shop-item';
 import ShopPreview from './shop-preview';
-
-
 
 const ShopCarousel = ( {collections}) => {
     return (
