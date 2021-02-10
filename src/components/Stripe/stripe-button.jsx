@@ -39,9 +39,11 @@ let items;
         // removeAllItems();
     }
 
+
+
     //Emailjs
     var templateParams = {
-
+        
         to_name: `${currentUser.displayName}`,
         from_name: 'Ecommerce Store',
         message: `${items.name + items.price}`,

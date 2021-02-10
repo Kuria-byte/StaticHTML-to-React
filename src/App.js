@@ -8,11 +8,13 @@ import Header from './components/Headers/Header-demo'
 import HomePage from './components/Pages/homePage';
 import checkoutPage from './components/Pages/checkout-page'
 import ShopPage from './components/Pages/shoppage'
+import SignInModal from './components/SignIn-Modal/sign-in-sign-up'
 //Utils
 import { selectCurrentUser } from './Redux/User/user.selector';
 import { fetchCollectionStart } from './Redux/Shop/shop.actions'
 import { selectIsCollectionFetching } from './Redux/Shop/shop.selector'
-import { SpinnerRoundFilled , SpinnerDotted } from 'spinners-react';
+import { SpinnerRoundFilled, SpinnerDotted } from 'spinners-react';
+
 // Styling and Plugins
 import './assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -69,13 +71,12 @@ class App extends React.Component {
               currentUser === null / undefined ?
                 <SpinnerDotted size={100} thickness={180} speed={91} color="rgba(172, 137, 57, 1)" style={styles} /> :
                 <Route exact path="/checkout" component={checkoutPage} />
-            }
-
+            } 
 
             {isCollectionFetching ?
               <SpinnerRoundFilled size={100} thickness={180} speed={91} color="rgba(172, 137, 57, 1)" style={styles} /> :
               <Route exact path="/shop" component={ShopPage} />}
-
+              <Route exact path="/login" component={SignInModal} />
           </Switch>
 
         </div>

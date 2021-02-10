@@ -108,7 +108,7 @@ const Header = ({ hidden, toggleMobileMenu, currentUser, logOut, history }) => {
             <div className='header-right'>
               <WishList />
 
-              <CartModal />
+              <CartModal currentUser={currentUser} />
 
             </div>
           </div>
