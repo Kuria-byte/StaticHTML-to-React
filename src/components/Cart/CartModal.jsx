@@ -34,9 +34,9 @@ const CartModal = ({ cartItems, itemCount, total, currentUser }) => {
                     <span className="cart-total-price">${total}</span>
                 </div>
                 <div className="dropdown-cart-action">
-                { currentUser ===null/undefined ?
-                 <a href="#signin-modal"  data-toggle='modal' className="btn btn-outline-primary-2"><span>Log In to continue</span><i className="icon-long-arrow-right"></i></a> :
-                 <a href="/checkout" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a> 
+                { currentUser ?
+                 <a href="/checkout" className="btn btn-outline-primary-2"><span>Checkout</span><i className="icon-long-arrow-right"></i></a> :
+                 <a href="#signin-modal"  data-toggle='modal' className="btn btn-outline-primary-2"><span>Log In to continue</span><i className="icon-long-arrow-right"></i></a>
                   }
 
                 </div>
