@@ -21,10 +21,11 @@ const CartSummary = ({ total, cartItems }) => {
         SetPaymentMethod(selectedMethod)
     }
 
-    const handleBankTransfer =() =>{
+  const handleBankTransfer =() =>{
         Swal.mixin({
             icon: 'info',
             heightAuto:'false',
+            width: '40.5rem',
             customClass: 'swal-wide',
             input: 'text',
             confirmButtonText: 'Next &rarr;',
@@ -33,7 +34,7 @@ const CartSummary = ({ total, cartItems }) => {
           }).queue([
             {
               title: 'Step 1',
-              text: `Deposit $${total} : To the account number 123-456-78`,
+              text: `Deposit $${total} : To the account number 123-456-789`,
               input: ``
             },
             {
@@ -53,6 +54,8 @@ const CartSummary = ({ total, cartItems }) => {
               Swal.fire({
                  icon: 'success' ,
                 title: 'All done!',
+                width: '40.5rem',
+                height: '35.5rem',
                 titleText: 'Your transaction will be confirmed shortly',
                 // html: `
                 //   Your response:
