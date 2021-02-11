@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import StripeButton from '../Stripe/stripe-button';
+import Swal from 'sweetalert2'
 //utils
 import cards from '../../assets/images/payments-summary.png'
 
@@ -18,6 +19,50 @@ const CartSummary = ({ total, cartItems }) => {
     const handlePayment = (event) => {
         const selectedMethod = event.target.id;
         SetPaymentMethod(selectedMethod)
+    }
+
+    const handleBankTransfer =() =>{
+        Swal.mixin({
+            icon: 'info',
+            heightAuto:'false',
+            customClass: 'swal-wide',
+            input: 'text',
+            confirmButtonText: 'Next &rarr;',
+            showCancelButton: true,
+            progressSteps: ['1', '2', '3']
+          }).queue([
+            {
+              title: 'Step 1',
+              text: `Deposit $${total} : To the account number 123-456-78`,
+              input: ``
+            },
+            {
+                title: 'Step 2',
+                text: 'Attatch transaction reference below',
+                input: 'file'
+              },
+              {
+                title: 'Step 3',
+                text: 'Enter Your Delivery Address'
+              },
+           
+          
+          ]).then((result) => {
+            if (result.value) {
+            //   const answers = JSON.stringify(result.value)
+              Swal.fire({
+                 icon: 'success' ,
+                title: 'All done!',
+                titleText: 'Your transaction will be confirmed shortly',
+                // html: `
+                //   Your response:
+                //   <pre><code>${answers}</code></pre>
+                // `,
+                confirmButtonText: 'Thank you!'
+              })
+            }
+          })
+
 
     }
 
@@ -142,7 +187,7 @@ const CartSummary = ({ total, cartItems }) => {
                         )
                     } else {
                         return (
-                            <button className="btn btn-outline-primary-2 btn-order btn-block"><span style={{ paddingRight: "10px" }}>&#128179;</span>DIRECT BANK TRANSFER</button>
+                            <button className="btn btn-outline-primary-2 btn-order btn-block" onClick={handleBankTransfer}><span style={{ paddingRight: "10px" }}>&#128179;</span>DIRECT BANK TRANSFER</button>
                         )
                     }
                 })()}

@@ -31,8 +31,6 @@ import './assets/css/demos/demo-6.css'
 
 
 
-
-
 class App extends React.Component {
 
   unsubscribeFromAuth = null;

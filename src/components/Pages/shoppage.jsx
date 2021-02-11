@@ -10,14 +10,20 @@ import CollectionHolder from '../Product/collection-holder'
 
 const ShopPage = ({ collections }) => {
 
-    const [userSelect, setSelected] = useState('Womens')
 
+   
+
+    
+    const [userSelect, setSelected] = useState('Womens')
+    
 
     const handleRadioSelect = (event) => {
         const selectedValue = event.target.value;
         setSelected(selectedValue)
 
     }
+
+    
 
     // var collectionArraywithObjects = collections.map(item => ({ id : item.id, title: item.title, items:{ ...item.items}}))
     // var collectionItems ={...collectionArraywithObjects}
@@ -73,7 +79,7 @@ const ShopPage = ({ collections }) => {
                         <div className="row">
 
                             {collections.map(({ id, ...otherCollectionProps }) => (
-                                <CollectionHolder key={id} {...otherCollectionProps} stateTitle={userSelect} />
+                                <CollectionHolder key={id} {...otherCollectionProps} stateTitle={userSelect}  />
                             ))}
 
                         </div>
