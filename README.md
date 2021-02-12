@@ -1,6 +1,49 @@
+# Static- toReact
+![image](https://user-images.githubusercontent.com/61579772/107756107-afe05480-6d5e-11eb-96fd-3f4a3f1dcf44.png)
+
+## About
+If you ever wanted to use a static html template for your react app, I present a proven way to do so. By breaking down a huge HTML file to managable react components that you can reuse
+- https://static-html-to-react-1xif84npb.vercel.app/
+
+## Note Worthy📐
+- Where to place your styling ? Import all styling in the app.js
+- Where to place the assets (css, fonts, js, images) folder ? Inside the src folder - this way you won't have to import the styling on each component
+- Removing all default html comments
+- Html class attributes should be converted to className (class is a keyword in javascript and JSX is an extension of javascript. That's the principal reason why React uses className instead of class.)
+- Use camelCases 
+- All html elements to be used inside a component should have closing tags
+- Importing images using src ={imageName} - refer to ( https://create-react-app.dev/docs/adding-images-fonts-and-files/)
+
+ 
+## What's in Store
+- User authentication and database implemented with google firebase
+- Used React-router for dynamic web navigation
+- Complex state management managed by Redux with memorized selectors
+- Used Redux-Persist and local storage for persistence
+- Implemented credit card payment with stripe
+- Asynchronous API request handled with Redux -saga
+- Dynamic Filtering ( Shop by categories)
+- Deployed on vercel
+
+## Project Structure🚀
+The structure of the web app
+
+- assets- all common scripts and stylings (css), fonts used on the pages, theme scripts included in script.js file
+- src - all jsx files
+- components - all react components
+
+## Hosting
+- Vercel - continous delivery/ Automatically deploys app each time you commit to the master branch
+- Heroku - great option but slow
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Start
+- git clone the proect
+- npm install
 
 ## Available Scripts
 
@@ -19,52 +62,17 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### References
+- https://www.udemy.com/course/complete-react-developer-zero-to-mastery/
+- https://www.divinector.com/
+- https://www.sitepoint.com/how-to-create-an-ecommerce-site-with-react/
+- http://fancyapps.com/fancybox/3/
+- https://ivy555.medium.com/learn-stepwise-to-create-e-commerce-website-in-react-with-redux-dca78932a761
+- https://owlcarousel2.github.io/OwlCarousel2/
+- http://www.hackingwithreact.com/read/1/13/rendering-an-array-of-data-with-map-and-jsx
+- https://reactjs.org/docs/lists-and-keys.html
+- https://developers.facebook.com/docs/graph-api/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Inspiration ❤
+- https://www.frontendfun.com/free/crwn-clothing-e-commerce-project-from-complete
