@@ -25,6 +25,10 @@ If you ever wanted to use a static html template for your react app, I present a
 - Dynamic Filtering ( Shop by categories)
 - Deployed on vercel
 
+## Commits
+- Browse through commits to see the project flow from inception to deployment
+![image](https://user-images.githubusercontent.com/61579772/107758359-b91ef080-6d61-11eb-8786-42911f5823af.png)
+
 ## Project Structure🚀
 The structure of the web app
 
